@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MirthMoney_Bank</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcrypt.js/5.0.1/bcrypt.min.js"></script>
+</head>
+<body>
+    <div class="coin-container">
+        <div class="coin">
+            <div class="face front">
+                <span>$</span>
+            </div>
+            <div class="face back">
+                <span>$</span>
+            </div>
+        </div>
+    </div>
+    <h1>MirthMoney</h1>
+    <div id="auth-section">
+        <input type="email" id="email" placeholder="Введите ваш email" required>
+        <button onclick="startRegistration()">Регистрация</button>
+        <button onclick="showLogin()">Войти</button>
+    </div>
+    <div id="password-section" style="display: none;">
+        <input type="password" id="password" placeholder="Придумайте пароль" required>
+        <button onclick="completeRegistration()">Завершить регистрацию</button>
+    </div>
+    <div id="login-section" style="display: none;">
+        <input type="password" id="login-password" placeholder="Введите пароль" required>
+        <button onclick="login()">Войти в аккаунт</button>
+    </div>
+    <div id="account" style="display: none;">
+        <h2>Ваш Баланс: <span id="balance">0</span> MMС</h2>
+        <h3>Ваш адрес MMC: <span id="username"></span></h3>
+        <input type="text" id="recipient" placeholder="Имя получателя" required>
+        <input type="number" id="transferAmount" placeholder="Сумма перевода" min="1" required>
+        <button onclick="transferFunds()">Перевести Средства</button>
+        <button onclick="startMining()">Майнинг</button>
+        <button onclick="logout()">Выйти</button>
+    </div>
+    <div id="transaction-history" style="display: none;">
+        <h2>История Транзакций</h2>
+        <ul id="history"></ul>
+    </div>
+    <div id="mining-section" style="display: none;">
+        <h2>Майнинг</h2>
+        <h3>Ваш баланс: <span id="miningBalance">0</span> MMС</h3>
+        <button onclick="stopMining()">Выйти с майнинга</button>
+    </div>
+    <div id="status" style="position: fixed; bottom: 10px; left: 10px; background-color: #4CAF50; color: white; padding: 10px; border-radius: 5px; display: none;">
+        Сайт онлайн
+    </div>
+    <div id="online-users" style="position: fixed; bottom: 40px; left: 10px; background-color: #ffffff; color: rgb(0, 0, 0); padding: 10px; border-radius: 5px;">
+        Пользователей посетило сайт: <span id="userCount">0</span>
+    </div>
+    <div id="total-balance-section" style="position: fixed; bottom: 70px; left: 10px; background-color: #ffffff; color: rgb(0, 0, 0); padding: 10px; border-radius: 5px;">
+        Общий баланс всех пользователей: <span id="totalBalance">0</span> MMС
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
